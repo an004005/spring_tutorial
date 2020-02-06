@@ -1,12 +1,14 @@
 package tutos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.
 import tutos.nosql.TableDTO;
 import tutos.nosql.TableRepository;
+import tutos.service.FindAllService;
 
 import java.util.List;
 
@@ -14,10 +16,12 @@ import java.util.List;
 @RequestMapping("/table")
 public class TableController {
     @Autowired
-    private TableRepository repository;
+    private FindAllService findAllService;
 
-    @RequestMapping("id", method = RequestMethod.GET)
-    public List<TableDTO.One>
+    @RequestMapping("/{id}", method = RequestMethod.GET)
+    public TableDTO.One getTableById(@PathVariable("id") String id){
+        return findAllService.findById(id);
+    }
 
 
 }
