@@ -7,20 +7,22 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @NoArgsConstructor
-public class TableDTO{
+public class TableDTO extends TableBase{
 
-    public static class One extends TableBase {
-        @Builder
-        public One(String id, String name, String species, String breed) {
-            super(id, name, species, breed);
-        }
+    @Builder
+    public TableDTO(String id, String name, String species, String breed) {
+        super(id, name, species, breed);
     }
 
     @Data
     @NoArgsConstructor
     public static class All {
-        private List<One> all;
+        private List<TableDTO> all;
 
-        public All(List<One> all) { this.all = all; }
+        @Builder
+        public All(List<TableDTO> all) {
+            this.all = all;
+        }
+
     }
 }

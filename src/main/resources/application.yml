@@ -1,6 +1,24 @@
+server:
+  port: 8084
 spring:
   data:
     mongodb:
-      host: localhost
+      host: 127.0.0.1
       port: 27017
+      authentication-database: admin
       database: test
+      username: tester
+      password: qqq123##$$
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/api?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: qqq123##$$
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        globally_quoted_identifiers_skip_column_definitions: true
+        globally_quoted_identifiers: true
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: false
+
