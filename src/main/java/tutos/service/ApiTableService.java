@@ -1,5 +1,6 @@
 package tutos.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tutos.nosql.TableDTO;
@@ -9,7 +10,6 @@ import tutos.rsql.ApiTableDTO;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @Component
 public class ApiTableService {
     @Autowired

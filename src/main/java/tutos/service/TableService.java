@@ -1,14 +1,22 @@
 package tutos.service;
 
+import com.zeronsoftn.zeroback.SolutionLog;
+import com.zeronsoftn.zeroback.SolutionLogger;
+import com.zeronsoftn.zeromon.server.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tutos.nosql.Table;
 import tutos.nosql.TableDTO;
 import tutos.nosql.TableRepository;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+@Slf4j
 @Component
 public class TableService {
     @Autowired
@@ -22,6 +30,26 @@ public class TableService {
                 .species(table.getSpecies())
                 .breed(table.getBreed())
                 .build();
+
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("data1", tableDto);
+
+        log.debug("/table/id");
+        SolutionLog.builder()
+                .withRemoteAddress("localhost")
+                .withRemoteUserAgent("LoggerTest")
+                .withAction("findById")
+                .withUser(SolutionLog.User.builder()
+                    .userId("Test By AJ")
+                    .userName("Test By AJ")
+                    .autzName("Test By AJ")
+                    .companyId("Test By AJ")
+                    .departmentName("Test By AJ")
+                    .build())
+                .withMessage("findById is processing")
+                .withData(data)
+                .warn();
+
         return tableDto;
     }
 

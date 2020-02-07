@@ -7,5 +7,11 @@
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="MongoDB - test@127.0.0.1" uuid="f90be01d-ce3c-4162-9608-836027ea1e1a">
+      <driver-ref>mongo</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb://127.0.0.1:27017/test?authSource=admin&amp;readPreference=primary&amp;appname=MongoDB%20Compass%20Community&amp;ssl=false</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -1,5 +1,6 @@
 package tutos.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ public class TableController {
     private TableService tableService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public TableDTO getTableById(@PathVariable("id") String id){
+    public TableDTO findById(@PathVariable("id") String id){
         return tableService.findById(id);
     }
 
@@ -23,5 +24,4 @@ public class TableController {
     public TableDTO.All findAll(){
         return tableService.findAll();
     }
-
 }
