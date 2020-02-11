@@ -13,8 +13,12 @@ import tutos.service.ApiTableService;
 @RestController
 @RequestMapping("/api")
 public class ApiTableController {
-    @Autowired
     private ApiTableService apiTableService;
+
+    @Autowired
+    public ApiTableController(ApiTableService apiTableService) {
+        this.apiTableService = apiTableService;
+    }
 
     @RequestMapping(value = "/{userNo}", method = RequestMethod.GET)
     public ApiTableDTO findByuserNo(@PathVariable("userNo") Integer userNo){

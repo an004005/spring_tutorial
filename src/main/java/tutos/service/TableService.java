@@ -6,6 +6,7 @@ import com.zeronsoftn.zeromon.server.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import tutos.nosql.Table;
 import tutos.nosql.TableDTO;
 import tutos.nosql.TableRepository;
@@ -17,10 +18,14 @@ import java.util.HashMap;
 import java.util.List;
 
 @Slf4j
-@Component
+@Service
 public class TableService {
+    private final TableRepository tableRepository;
+
     @Autowired
-    private TableRepository tableRepository;
+    public TableService(TableRepository tableRepository) {
+        this.tableRepository = tableRepository;
+    }
 
     public TableDTO findById(String id) {
         Table table = tableRepository.findById(id).orElse(null);

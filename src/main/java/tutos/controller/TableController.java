@@ -12,8 +12,12 @@ import tutos.service.TableService;
 @RestController
 @RequestMapping("/table")
 public class TableController {
-    @Autowired
     private TableService tableService;
+
+    @Autowired
+    public TableController(TableService tableService) {
+        this.tableService = tableService;
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public TableDTO findById(@PathVariable("id") String id){

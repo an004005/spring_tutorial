@@ -1,6 +1,14 @@
 server:
   port: 8084
 spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+  freemarker:
+    cache: false
+    check-template-location: false
   data:
     mongodb:
       host: 127.0.0.1

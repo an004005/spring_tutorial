@@ -2,7 +2,7 @@ package tutos.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import tutos.nosql.TableDTO;
 import tutos.rsql.ApiRepository;
 import tutos.rsql.ApiTable;
@@ -10,10 +10,15 @@ import tutos.rsql.ApiTableDTO;
 
 import java.util.ArrayList;
 import java.util.List;
-@Component
+
+@Service
 public class ApiTableService {
+    private final ApiRepository apiRepository;
+
     @Autowired
-    private ApiRepository apiRepository;
+    public ApiTableService(ApiRepository apiRepository){
+        this.apiRepository = apiRepository;
+    }
 
     public ApiTableDTO findByUserNo(Integer userNo){
         ApiTable apiTable = apiRepository.findByUserNo(userNo).orElse(new ApiTable());
