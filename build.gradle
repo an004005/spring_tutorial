@@ -39,17 +39,6 @@ configurations {
     }
 }
 
-repositories {
-    mavenCentral()
-    jcenter()
-    maven {
-        url "https://repo-master.zeronsoftn.com/artifactory/zeroback"
-        credentials {               // Optional resolver credentials (leave out to use anonymous resolution)
-            username = properties.getProperty("artifactory.username", "")
-            password = properties.getProperty("artifactory.password", "")
-        }
-    }
-}
 
 dependencies {
     implementation('com.zeronsoftn.zeroback:zeroback-log:1.0.61')
